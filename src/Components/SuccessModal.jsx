@@ -17,8 +17,8 @@ function SuccessModal({toggleSuccessModal, decreasePledges,
 
 
   return (
-    <div className='px-96 py-40 fixed inset-0 '>
-        <div className='bg-white rounded-xl text-center py-10 px-10 mx-10'>
+    <div className='md:px-96  py-40 fixed inset-0 '>
+        <div className='bg-white rounded-xl text-center md:py-10 md:px-10 px-5 py-5 mx-10'>
             <div className='flex justify-center mb-5'><img src="/images/icon-check.svg" alt="" /></div> 
             <h1 className='text-3xl font-bold mb-5'>Thanks for your support!</h1>
             <p>Your pedge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.

@@ -65,7 +65,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                       <p className='text-slate-500 text-md pt-2 md:pb-0 pb-5'>Enter your pledge</p>
                       <div className='md:flex grid grid-cols-2 gap-5  relative'>
                         <input value={inpVal} onChange={handleInputChange} 
-                        className={`md:px-8 px-5 py-3  rounded-3xl border border-gray-300`} type="text" placeholder='0.00' />
+                        className={`md:px-8 px-5 py-3  rounded-3xl border border-gray-300`} type='number' placeholder='0.00' />
                         <p className='absolute font-bold text-slate-500 pt-3 md:pl-3 pl-2 text-md'>$</p>
                         <button onClick={() => handleSubmit(item.id)} 
                         className='bg-teal-500 rounded-3xl px-5 text-white'>Continue</button>
@@ -107,7 +107,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                         <input value={inpVal} onChange={handleInputChange} disabled={item.pledges <= 0}
                         className={`px-8 py-3 rounded-3xl border  
                         ${item.pledges <= 0 ? 'border-gray-100 bg-slate-300': 'border-gray-300' }`}
-                          type="text" placeholder='0.00' />
+                        type='number' placeholder='0.00' />
                         <p className='absolute font-bold text-slate-500 pt-3 pl-3 text-md'>$</p>
                         <button disabled={item.pledges <= 0} onClick={handleSubmit} 
                         className={`${item.pledges <= 0 ? 'bg-slate-400': 'bg-cyan-500 hover:bg-teal-600'}
