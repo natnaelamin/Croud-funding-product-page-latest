@@ -8,7 +8,6 @@ import Data from './Components/PledgeData'
 import SuccessModal from './Components/SuccessModal'
 
 
-
 function App() {
 
   const [bookMark, setBookMark] = useState(false)
@@ -56,8 +55,7 @@ function App() {
   const progressPercentile = ((backed)/ 100000)*100;
   
 
-  const decreasePledges = (selectedPledgeId) => {
-    // Find the selected pledge in the pledgeData array
+  const decreasePledges = (selectedPledgeId) => {   
     const selectedPledge = pledgeData.find((pledge) => pledge.id === selectedPledgeId);
 
     // Check if there are pledges left
