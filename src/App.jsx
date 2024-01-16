@@ -35,6 +35,10 @@ function App() {
   const handlePledge = (value) => {
     setPledge(value)
   }
+
+  const handleRadioChange = (value) => {
+    setSelectedRadio(value === selectedRadio? null: value)
+  }
   
   const totalBacked = () =>{
     setBacked(Number(backed) + Number(pledge))
@@ -42,9 +46,7 @@ function App() {
     setPledge('')  
   }
 
-  const handleRadioChange = (value) => {
-    setSelectedRadio(value === selectedRadio? null: value)
-  }
+  
 
   const handleSelectReward = (id) => {
     togglePledgeModal();
