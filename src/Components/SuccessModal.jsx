@@ -1,4 +1,4 @@
-import React from 'react'
+import { motion } from "framer-motion" 
 
 function SuccessModal({toggleSuccessModal, decreasePledges,
    isSuccessOpen, totalBacked, newValue, setRadio}) {
@@ -16,7 +16,7 @@ function SuccessModal({toggleSuccessModal, decreasePledges,
 
 
   return (
-    <div className='md:px-96  py-40 fixed inset-0 '>
+    <motion.div animate={{y: 50, scale:1}} initial={{scale: 0}} className='md:px-96  py-40 fixed inset-0 '>
         <div className='bg-white rounded-xl text-center md:py-10 md:px-10 px-5 py-5 md:mx-10'>
             <div className='flex justify-center mb-5'><img src="/images/icon-check.svg" alt="" /></div> 
             <h1 className='text-3xl font-bold mb-5'>Thanks for your support!</h1>
@@ -25,7 +25,7 @@ function SuccessModal({toggleSuccessModal, decreasePledges,
             <button onClick={handleCloseSuccessModal}
             className='px-6 py-3 bg-cyan-500 hover:bg-teal-600 rounded-2xl my-5'>Got it!</button>  
         </div>
-    </div>
+    </motion.div>
   )
 }
 

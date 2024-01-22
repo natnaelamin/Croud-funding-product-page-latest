@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { motion } from "framer-motion"
 
 function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio, 
    newValue, handlePledge, inpVal, data}) {
@@ -23,10 +24,8 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
   }
 
   const handleSubmit = () => {
-    // Find the selected pledge based on newValue
     const selectedPledge = data.find((item) => item.id === newValue);
   
-    // Check if the selected pledge exists and if inpVal is less than the amount
     if (selectedPledge && inpVal < selectedPledge.amount) {
       setShowError(true);
       return null;
@@ -38,7 +37,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
   };
 
   return (
-    <div className='fixed inset-0 md:px-64 py-8'>
+    <motion.div animate={{y: 50, scale:1}} initial={{scale: 0}} className='fixed inset-0 md:px-64 py-8'>
       <div className='px-5 md:px-10 py-10  bg-white w-full  
         rounded-lg overflow-y-auto h-full '>
         <div>
@@ -121,7 +120,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

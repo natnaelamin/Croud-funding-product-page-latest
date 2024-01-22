@@ -20,8 +20,8 @@ function Discover() {
   }
 
   return (
-    <div className=' md:px-8  '>
-      <div className='md:flex '>
+    <div className='md:px-8'>
+      <div className='md:flex'>
         <div className='md:flex relative'>
           {Store[currentIndex].image}
           <div className='md:hidden absolute right-0 bottom-0'>
@@ -35,7 +35,7 @@ function Discover() {
             <p className='mb-5 text-slate-500'>{Store[currentIndex].description}</p>
             <div className='flex gap-5 text-slate-500'>
               <p className='text-lg mb-3 '>SHOP NOW </p>
-              <img src="/aboutImages/icon-arrow.svg" alt="" className='hover:text-slate-500' />
+              <img src="/aboutImages/icon-arrow.svg" alt="" className='hover:text-slate-500 h-5 pt-2' />
             </div>
           </div>
           <div className='md:flex absolute left-0 bottom-0 hidden'>
