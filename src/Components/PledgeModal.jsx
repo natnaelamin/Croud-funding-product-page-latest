@@ -114,8 +114,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                          rounded-3xl px-5 text-white`}>{item.pledges <= 0 ? 'Out of Stock' : 'Continue'}</button>
                       </div>  
                     </div>
-                    {showError && <p className='text-red-500 text-right'>please enter ${item.amount} or more.</p> }
-                    
+                    {showError && <p className='text-red-500 text-right'>please enter ${item.amount} or more.</p> }  
                   </div> 
                 }    
             </div>
