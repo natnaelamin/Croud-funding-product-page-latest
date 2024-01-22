@@ -20,7 +20,7 @@ function Discover() {
   }
 
   return (
-    <div className=' md:px-8 py-10 '>
+    <div className=' md:px-8  '>
       <div className='md:flex '>
         <div className='md:flex relative'>
           {Store[currentIndex].image}
@@ -29,7 +29,7 @@ function Discover() {
               <button onClick={Forward} className='bg-black hover:bg-gray-500 px-5 py-5'><img src="/aboutImages/icon-angle-right.svg" alt="" /></button>
           </div>
         </div>
-        <div className='md:relative md:w-3/6'>
+        <div className='md:relative md:w-3/6 pt-5 md:pt-0'>
           <div className=' md:px-20 px-4'>
             <h1 className='md:text-4xl text-xl font-bold mb-5 md:mt-24'>{Store[currentIndex].title}</h1>
             <p className='mb-5 text-slate-500'>{Store[currentIndex].description}</p>
