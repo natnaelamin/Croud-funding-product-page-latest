@@ -16,14 +16,14 @@ function SuccessModal({toggleSuccessModal, decreasePledges,
 
 
   return (
-    <motion.div animate={{y: 50, scale:1}} initial={{scale: 0}} className='md:px-96  py-40 fixed inset-0 '>
+    <motion.div animate={{scale:1}} initial={{scale: 0}} transition={{type:"spring"}} className='md:px-96  py-40 fixed inset-0 '>
         <div className='bg-white rounded-xl text-center md:py-10 md:px-10 px-5 py-5 md:mx-10'>
             <div className='flex justify-center mb-5'><img src="/images/icon-check.svg" alt="" /></div> 
             <h1 className='text-3xl font-bold mb-5'>Thanks for your support!</h1>
             <p>Your pedge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide.
                 You will get an email once our campaign is completed. </p>
-            <button onClick={handleCloseSuccessModal}
-            className='px-6 py-3 bg-cyan-500 hover:bg-teal-600 rounded-2xl my-5'>Got it!</button>  
+            <motion.button whileHover={{scale:1.1}} onClick={handleCloseSuccessModal}
+            className='px-6 py-3 bg-cyan-500 hover:bg-teal-600 rounded-2xl my-5'>Got it!</motion.button>  
         </div>
     </motion.div>
   )

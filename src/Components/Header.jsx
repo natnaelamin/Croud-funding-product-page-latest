@@ -1,4 +1,4 @@
-import React from 'react'
+import { motion } from "framer-motion"
 
 function Header({toggleBookMark, bookMark, backProject}) {
 
@@ -19,8 +19,8 @@ function Header({toggleBookMark, bookMark, backProject}) {
           <h1 className='font-bold text-3xl mb-5'>Mastercraft Bamboo Monitor Riser</h1>
           <p className='mb-5 text-slate-500'>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
           <div className='flex justify-between relative'>
-            <button onClick={handleBackProject} className='text-white font-semibold px-1 md:px-5 py-3
-             rounded-3xl bg-cyan-500 hover:bg-teal-600'>Back this project</button>
+            <motion.button onClick={handleBackProject} whileHover={{scale:1.1}} className='text-white font-semibold px-1 md:px-5 py-3
+             rounded-3xl bg-cyan-500 hover:bg-teal-600'>Back this project</motion.button>
             <button onClick={handleBookMark} className='flex gap-5 bg-white rounded-3xl pr-2'>
               <span> 
               {bookMark ? (<img src="/images/icon-bookmarked.svg" alt="" className='bg-teal-500 opacity-50 rounded-full' />) 

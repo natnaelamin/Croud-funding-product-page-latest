@@ -1,4 +1,4 @@
-import React from 'react'
+import { motion } from "framer-motion"
 
 
 function PledgeOptions({data, handleSelectReward}) {
@@ -25,10 +25,10 @@ function PledgeOptions({data, handleSelectReward}) {
                              'text-slate-500 font-normal': 'font-extrabold' }`}>{pledge.pledges}</h1> 
                         <p className='text-slate-500 pt-2'> left</p> 
                     </div>
-                    <button disabled={pledge.pledges <= 0} onClick={()=> handleSelectedReward(pledge.id)} 
+                    <motion.button whileHover={{scale:1.1}} disabled={pledge.pledges <= 0} onClick={()=> handleSelectedReward(pledge.id)} 
                     className={`text-white font-semibold px-5 py-3 rounded-3xl  
                     ${pledge.pledges <= 0 ? 'bg-slate-400': 'bg-cyan-500 hover:bg-teal-600'}`}
-                     >{pledge.pledges <= 0 ? 'Out of Stock' : 'Select Reward'}</button>
+                     >{pledge.pledges <= 0 ? 'Out of Stock' : 'Select Reward'}</motion.button>
                 </div>
             </div>
         ))}

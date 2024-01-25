@@ -44,7 +44,7 @@ function Home() {
   const totalBacked = () =>{
     setBacked(Number(backed) + Number(pledge))
     setBackers(Number(backers)  + 1) 
-    setPledge('')  
+    setPledge('')    
   }
 
   const handleSelectReward = (id) => {

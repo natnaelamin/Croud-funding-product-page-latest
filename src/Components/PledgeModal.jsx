@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from "framer-motion"
 
 function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio, 
    newValue, handlePledge, inpVal, data}) {
 
     const [showError, setShowError] = useState(false)
+    const modalRef = useRef(null);
+
+    useEffect(() => {
+      if (isOpen && newValue !== null && modalRef.current) {
+        const selectedOption = modalRef.current.querySelector(`#option-${newValue}`);
+        if (selectedOption) {
+          selectedOption.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }, [isOpen, newValue]);
     
 
   if(!isOpen){
@@ -25,20 +35,26 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
 
   const handleSubmit = () => {
     const selectedPledge = data.find((item) => item.id === newValue);
-  
-    if (selectedPledge && inpVal < selectedPledge.amount) {
-      setShowError(true);
+    if(isNaN(inpVal) || inpVal===""){
       return null;
+    }else{
+      if (selectedPledge && inpVal < selectedPledge.amount) {
+        setShowError(true);
+        return null;
+      }
+      setShowError(false);
+      toggleSuccessModal();
+      togglePledgeModal()
+      
+    };
     }
-    setShowError(false);
-    toggleSuccessModal();
-    togglePledgeModal()
+  
     
-  };
+  console.log(inpVal)
 
   return (
-    <motion.div animate={{y: 50, scale:1}} initial={{scale: 0}} className='fixed inset-0 md:px-64 py-8'>
-      <div className='px-5 md:px-10 py-10  bg-white w-full  
+    <motion.div animate={{ scale:1}} initial={{scale: 0}} transition={{type:"spring"}} className='fixed inset-0 md:px-64 py-8'>
+      <div ref={modalRef} className='px-5 md:px-10 py-10  bg-white w-full  
         rounded-lg overflow-y-auto h-full '>
         <div>
           <div className='flex justify-end'>
@@ -60,7 +76,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                   </div>
                   <p className='text-slate-500'>{item.reward}</p>
                   {item.id === newValue && 
-                    <div className='md:flex justify-between py-5 mt-5 border-t '>
+                    <motion.div animate={{y: 25}} className='md:flex justify-between py-5 mt-5 border-t '>
                       <p className='text-slate-500 text-md pt-2 md:pb-0 pb-5'>Enter your pledge</p>
                       <div className='md:flex grid grid-cols-2 gap-5  relative'>
                         <input value={inpVal} onChange={handleInputChange} 
@@ -69,11 +85,11 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                         <button onClick={() => handleSubmit(item.id)} 
                         className='bg-teal-500 rounded-3xl px-5 text-white'>Continue</button>
                       </div> 
-                    </div>
+                    </motion.div>
                   }      
               </div>
             : 
-            <div key={item.id} className={`border-2  ${item.id === newValue? 'border-cyan-500': 'border-gray-300'} 
+            <div id={`option-${item.id}`} key={item.id} className={`border-2  ${item.id === newValue? 'border-cyan-500': 'border-gray-300'} 
                 rounded-lg px-5 py-10 mb-10`}>
                 <div className='flex justify-between mb-2 '>
                   <div className='flex gap-5 mb-2'>
@@ -99,7 +115,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                     </div>
                   </div>
                 {item.id === newValue &&
-                  <div>
+                  <motion.div animate={{y: 25}}>
                     <div className='md:flex justify-between py-5 mt-5 border-t'>
                       <p className='text-slate-500 text-md pt-2 md:pb-0 pb-5'>Enter your pledge</p>
                       <div className='md:flex grid grid-cols-2 gap-5 relative'>
@@ -114,7 +130,7 @@ function PledgeModal({isOpen, togglePledgeModal, toggleSuccessModal, handleRadio
                       </div>  
                     </div>
                     {showError && <p className='text-red-500 text-right'>please enter ${item.amount} or more.</p> }  
-                  </div> 
+                  </motion.div> 
                 }    
             </div>
           ))}
