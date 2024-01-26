@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes, Link } from 'react-router-dom'
+import { Route, Routes, NavLink } from 'react-router-dom'
 import Home from './Components/Home'
 import Discover from './Components/Discover'
 
@@ -9,10 +9,10 @@ function App() {
       <nav className='bg-black text-white '>
         <ul className='flex justify-end gap-5 px-10 py-4'>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/" style={({ isActive }) => ({ color: isActive ? "orange" : "white" })}>Home</NavLink>
           </li>
           <li>
-            <Link to="/discover">Discover</Link>
+            <NavLink to="/discover" style={({ isActive }) => ({ color: isActive ? "orange" : "white" })}>Discover</NavLink>
           </li>
         </ul>
       </nav>

@@ -22,9 +22,11 @@ function Progress({backed, backers, progressPercentile}) {
                     <h1 className='text-slate-500'>days left</h1>
                 </div>
             </div>
-            <div className='h-4 bg-slate-300 rounded-xl w-full relative mt-5'>
-            <motion.div animate={{ scale:1}} initial={{scale: 0}} transition={{type:"tween", duration:1}} className='absolute top-0 left-0 h-full bg-cyan-500 rounded-xl' style={{ width: `${progressPercentile<= 100? progressPercentile: 100}%` }}></motion.div>
-        </div>    
+            <motion.div animate={{ scale:1}} initial={{scale: 0}} transition={{type:"tween", duration:1}} className='h-4 bg-slate-300 rounded-xl w-full relative mt-5'>
+                <motion.div animate={{ scale:1}} initial={{scale: 0}} transition={{type:"tween", duration:1}} 
+                className='absolute top-0 left-0 h-full bg-cyan-500 rounded-xl' 
+                style={{ width: `${progressPercentile<= 100? progressPercentile: 100}%` }}></motion.div>
+            </motion.div>    
         </div>
     </div>
 )

@@ -59,13 +59,10 @@ function Home() {
   const decreasePledges = (selectedPledgeId) => {   
     const selectedPledge = pledgeData.find((pledge) => pledge.id === selectedPledgeId);
 
-    // Check if there are pledges left
     if (selectedPledge && selectedPledge.pledges > 0) {
-      // Decrease the pledges value by 1 in the pledgeData array
       const updatedPledgeData = pledgeData.map((pledge) =>
         pledge.id === selectedPledgeId ? { ...pledge, pledges: pledge.pledges - 1 } : pledge
       );
-      // Update the pledgeData in the state
       setPledgeData(updatedPledgeData);
     }
 
