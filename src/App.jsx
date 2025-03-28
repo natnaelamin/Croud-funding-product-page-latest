@@ -6,7 +6,7 @@ import Discover from './Components/Discover'
 function App() {
   return (
     <>
-      <nav className='bg-black text-white '>
+      <nav className='bg-black text-white w-svw fixed z-10'>
         <ul className='flex justify-end gap-5 px-10 py-4'>
           <li>
             <NavLink to="/" style={({ isActive }) => ({ color: isActive ? "orange" : "white" })}>Home</NavLink>
